@@ -1,0 +1,35 @@
+Dictionary file => words_10pt.txt
+words_10pt.txt
+Input file => input_words.txt
+input_words.txt
+ditrust         -> ditrust         :NO MATCH
+catroon         -> cartoon         :SWAP
+martial         -> marital         :SWAP
+fridges         -> fidges          :DROP
+throned         -> thorned         :SWAP
+frozen          -> frozen          :FOUND
+blizzard        -> blizzard        :NO MATCH
+bailers         -> bailors         :REPLACE
+ampuls          -> ampul           :DROP
+fool            -> food            :REPLACE
+generously      -> generously      :NO MATCH
+ramosely        -> rimosely        :REPLACE
+imprudences     -> imprudence      :DROP
+thiotepa        -> thiotepa        :FOUND
+lair            -> liar            :SWAP
+dissatisfaktion -> dissatisfaction :REPLACE
+aphthae         -> aphthae         :NO MATCH
+blunging        -> blunging        :FOUND
+casas           -> casa            :DROP
+blungign        -> blunging        :SWAP
+casas           -> casa            :DROP
+culverts        -> culverts        :NO MATCH
+butterscottches -> butterscotches  :DROP
+curries         -> curries         :NO MATCH
+pymurgies       -> zymurgies       :REPLACE
+aland           -> alane           :REPLACE
+babbled         -> babbler         :REPLACE
+cruises         -> crises          :DROP
+seta            -> eta             :DROP
+melodise        -> melodies        :SWAP
+crepe           -> creep           :SWAP

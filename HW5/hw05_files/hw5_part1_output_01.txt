@@ -1,0 +1,27 @@
+Enter the integer grid size => 10
+10
+Enter the integer number of Falses => 3
+3
+Enter the integer number of Trues => 2
+2
+Setting seed to 110
+Directions: ['N', 'E', 'S', 'W']
+Selected W, value 0.79
+Directions: ['N', 'E', 'S', 'W']
+Selected E, value 0.41
+Directions: ['N', 'E', 'S', 'W']
+Selected S, value 0.64
+Directions: ['N', 'E', 'S', 'W']
+Selected N, value 0.54
+Directions: ['N', 'E', 'S', 'W']
+Selected S, value 0.75
+Booleans: [False, False, False, True, True]
+Selected False
+Booleans: [False, False, False, True, True]
+Selected True
+Booleans: [False, False, False, True, True]
+Selected False
+Booleans: [False, False, False, True, True]
+Selected False
+Booleans: [False, False, False, True, True]
+Selected True

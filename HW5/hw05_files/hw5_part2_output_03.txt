@@ -1,0 +1,68 @@
+Enter the integer grid size => 15
+15
+Enter a probability (0.0 - 1.0) => .9
+.9
+Saw a pokemon at turn 1, location (6, 7)
+Caught it!
+Saw a pokemon at turn 2, location (5, 7)
+Missed ... 
+Saw a pokemon at turn 3, location (5, 6)
+Missed ... 
+Saw a pokemon at turn 4, location (5, 5)
+Missed ... 
+Saw a pokemon at turn 5, location (5, 6)
+Caught it!
+Saw a pokemon at turn 6, location (5, 7)
+Caught it!
+Saw a pokemon at turn 7, location (4, 7)
+Caught it!
+Saw a pokemon at turn 8, location (4, 6)
+Missed ... 
+Saw a pokemon at turn 9, location (4, 5)
+Caught it!
+Saw a pokemon at turn 10, location (4, 4)
+Missed ... 
+Saw a pokemon at turn 12, location (5, 5)
+Caught it!
+Saw a pokemon at turn 13, location (5, 6)
+Missed ... 
+Saw a pokemon at turn 14, location (5, 7)
+Caught it!
+Saw a pokemon at turn 15, location (4, 7)
+Caught it!
+Saw a pokemon at turn 16, location (3, 7)
+Caught it!
+Saw a pokemon at turn 17, location (3, 8)
+Caught it!
+Saw a pokemon at turn 18, location (4, 8)
+Caught it!
+Saw a pokemon at turn 19, location (4, 9)
+Caught it!
+Saw a pokemon at turn 20, location (3, 9)
+Caught it!
+Saw a pokemon at turn 21, location (4, 9)
+Missed ... 
+Saw a pokemon at turn 22, location (4, 8)
+Caught it!
+Saw a pokemon at turn 23, location (4, 9)
+Caught it!
+Saw a pokemon at turn 24, location (3, 9)
+Missed ... 
+Saw a pokemon at turn 27, location (2, 9)
+Missed ... 
+Saw a pokemon at turn 28, location (1, 9)
+Missed ... 
+Saw a pokemon at turn 29, location (2, 9)
+Caught it!
+Saw a pokemon at turn 30, location (2, 10)
+Caught it!
+Saw a pokemon at turn 31, location (1, 10)
+Caught it!
+Saw a pokemon at turn 32, location (1, 11)
+Caught it!
+Saw a pokemon at turn 33, location (1, 12)
+Missed ... 
+Saw a pokemon at turn 34, location (0, 12)
+Caught it!
+Trainer left the field at turn 34, location (0, 12).
+31 pokemon were seen, 20 of which were captured.

@@ -1,0 +1,33 @@
+Enter a title (stop to end) => fantastic
+fantastic
+
+Found the following title: Fantastic Beasts
+Beasts in this title: Ashwinder, Billywig, Bowtruckle, Demiguise,
+Diricawl, Doxy, Erumpent, Fwooper, Graphorn, Hippocampus, Lethifold,
+Mooncalf, Murtlap, Nundu, Occamy, Runespoor, Swooping Evil, Thestral
+
+Other titles containing beasts in common: Harry Potter and the Cursed
+Child, Harry Potter and the Deathly Hallows, Harry Potter and the
+Goblet of Fire, Harry Potter and the Order of the Phoenix, the
+Wizarding World of Harry Potter
+
+Beasts appearing only in this title: Ashwinder, Billywig, Diricawl,
+Graphorn, Lethifold, Mooncalf, Nundu, Occamy, Runespoor, Swooping Evil
+
+Enter a title (stop to end) => phoenix
+phoenix
+
+Found the following title: Harry Potter and the Order of the Phoenix
+Beasts in this title: Bowtruckle, Doxy, Murtlap, Thestral
+
+Other titles containing beasts in common: Fantastic Beasts
+
+Beasts appearing only in this title:
+
+Enter a title (stop to end) => end
+end
+
+This title is not found!
+
+Enter a title (stop to end) => stop
+stop

@@ -1,0 +1,27 @@
+Enter the integer grid size => 12367
+12367
+Enter the integer number of Falses => 0
+0
+Enter the integer number of Trues => 1
+1
+Setting seed to 136037
+Directions: ['N', 'E', 'S', 'W']
+Selected W, value 0.06
+Directions: ['N', 'E', 'S', 'W']
+Selected E, value 0.90
+Directions: ['N', 'E', 'S', 'W']
+Selected S, value 0.87
+Directions: ['N', 'E', 'S', 'W']
+Selected N, value 0.93
+Directions: ['N', 'E', 'S', 'W']
+Selected E, value 0.91
+Booleans: [True]
+Selected True
+Booleans: [True]
+Selected True
+Booleans: [True]
+Selected True
+Booleans: [True]
+Selected True
+Booleans: [True]
+Selected True

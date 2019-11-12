@@ -1,0 +1,22 @@
+Enter the integer grid size => 10
+10
+Enter a probability (0.0 - 1.0) => 0.2
+0.2
+Enter the number of simulations to run => 100
+100
+
+    0    0   -2    0    0   -1    1    1    0    0
+    0    0    0   -1   -1    0   -1   -1    1    0
+    0   -2   -2   -2   -1   -2   -2    0    1    0
+    1    0   -3   -4   -1   -2   -3   -1   -2    0
+    1    0    1   -2  -13    0   -6   -3   -3    0
+   -1   -2   -4   -5  -14    0   -8   -8   -4    1
+   -1   -1   -1   -5  -13   -4   -8    4   -1    1
+    0    0   -7    1   -4   -4   -1   -2    2    2
+   -1   -1   -1   -2    1   -1   -2   -1   -1    0
+    0    1    0    0    0   -1   -1    0    0    0
+Average number of turns in a simulation was 23.12
+Maximum number of turns was 76 in simulation 96
+Minimum number of turns was 5 in simulation 4
+Best net missed pokemon versus caught pokemon is 4
+Worst net missed pokemon versus caught pokemon is -14

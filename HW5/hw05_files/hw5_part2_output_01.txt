@@ -1,0 +1,24 @@
+Enter the integer grid size => 10
+10
+Enter a probability (0.0 - 1.0) => 0.2
+0.2
+Saw a pokemon at turn 7, location (4, 5)
+Missed ... 
+Saw a pokemon at turn 13, location (4, 5)
+Caught it!
+Saw a pokemon at turn 18, location (5, 3)
+Missed ... 
+Saw a pokemon at turn 19, location (5, 4)
+Missed ... 
+Saw a pokemon at turn 20, location (5, 5)
+Caught it!
+Saw a pokemon at turn 23, location (6, 5)
+Caught it!
+Saw a pokemon at turn 26, location (4, 4)
+Missed ... 
+Saw a pokemon at turn 29, location (3, 4)
+Missed ... 
+Saw a pokemon at turn 35, location (1, 6)
+Caught it!
+Trainer left the field at turn 37, location (0, 7).
+9 pokemon were seen, 4 of which were captured.
