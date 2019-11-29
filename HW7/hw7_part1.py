@@ -23,15 +23,16 @@ class autocorrect: #class autocorrect
 
         self.wordset = set(list(self.dictionary.keys()))
 
-    #TODO Add lexicographic sorting case exception
+    #TODO Add lexicographic sorting case exception - DONE
     def matchhandler(self, matchlist): #handles the list of possible matches, sorting them in frequency order
-        freqlist = dict()
         out = []
+        tosort = []
         for item in matchlist:
-            freqlist[float(self.dictionary[item])] = item
-        sortedfreq = sorted(list(freqlist.keys()), reverse=True)
-        for frequency in sortedfreq:
-            out.append(freqlist[frequency])
+            freq = float(self.dictionary[item])
+            tosort.append((freq, item))
+        sortedlist = sorted(tosort, reverse=True)
+        for item in sortedlist:
+            out.append(item[1])
         return out
 
 
@@ -122,7 +123,7 @@ def main():
     keyboardfile = input("Keyboard file => ")
     print(keyboardfile)
 
-    dictfile, inputfile, keyboardfile = open("words_10percent.txt"), open("input_words.txt"), open("keyboard.txt")
+    dictfile, inputfile, keyboardfile = open(dictfile), open(inputfile), open(keyboardfile)
 
     words = []
 
@@ -160,6 +161,8 @@ def main():
             print("{:<15} -> {:<15} {}".format(corrected.word, corrected.word, ":NO MATCH"))
         else:
             for i in range(len(corrected.likely)):
+                if i == 3:
+                    break
                 print("{:<15} -> {:<15} {} {}".format(corrected.word, corrected.likely[i], ":MATCH", i+1))
 
 if __name__ == "__main__": #main function
