@@ -12,7 +12,14 @@ class Bear:
 		self.active = True
 
 	def __str__(self):
-		return "Bear at {}, moving {}, state: {}".format(self.loc, self.dir, self.active)
+		if self.active:
+			if self.sleepstate > 0:
+				return "Bear at ({},{}) moving {} - Asleep for {} more turns".format(self.loc[0], self.loc[1], self.dir, self.sleepstate)
+			else:
+				return "Bear at ({},{}) moving {}".format(self.loc[0], self.loc[1], self.dir)
+		else:
+			self.loc = self.vector_add(self.loc, self.pose)
+			return "Bear at ({},{}) moving {} - Left the Field".format(self.loc[0], self.loc[1], self.dir)
 
 	def vector_add(self, t1, t2):
 		return (t1[0]+t2[0], t1[1]+t2[1])
@@ -34,6 +41,7 @@ class Bear:
 		for i in range(epoch):
 			if self.active:
 				if self.sleepstate == 0: #not asleep
+					
 					# RUNTIME:
 
 					self.eaten = 0
@@ -43,14 +51,13 @@ class Bear:
 							break
 
 						else: #tourist not on spot
-							berries = self.fieldList[self.loc[0]][self.loc[1]][0]
+							while self.fieldList[self.loc[0]][self.loc[1]][0] > 0:
+								self.fieldList[self.loc[0]][self.loc[1]][0] -= 1
+								self.eaten += 1
+								if self.eaten >= 30:
+									return
 
-							self.eaten += berries
 
-							self.fieldList[self.loc[0]][self.loc[1]][0] = 0 #remove all berries at loc
-
-							if self.eaten >= 30:
-								break
 
 							self.fieldList[self.loc[0]][self.loc[1]][1] -= 1 # remove self from boardstate
 							
@@ -62,6 +69,7 @@ class Bear:
 							self.loc = self.vector_add(self.loc, self.pose) # update self position
 							self.loc = self.posn(self.loc[0]), self.posn(self.loc[1]) # normalize self position
 							self.fieldList[self.loc[0]][self.loc[1]][1] += 1 #update board with self position
+				
 				if self.sleepstate > 0:
 					#is asleep
 					self.sleepstate -= 1

@@ -15,8 +15,10 @@ class Tourist:
 		self.build_distances()
 
 	def __str__(self):
-		return "Tourist at {}, state: {}, lastSeen: {}".format((self.row, self.col), self.active, self.lastSeen)
-
+		if self.active:
+			return "Tourist at ({},{}), {} turns without seeing a bear.".format(self.row, self.col, self.lastSeen)
+		else:
+			return "Tourist at ({},{}), {} turns without seeing a bear. - Left the Field".format(self.row, self.col, self.lastSeen)
 	def euclid_distance(self, r, c):
 		return ((self.row-r)**2+(self.col-c)**2)**0.5
 
@@ -49,26 +51,26 @@ class Tourist:
 				self.build_distances()
 				observing = len(self.observing)
 
-				if observing > 0: #if it sees a bear
-					self.lastSeen = 0
-
-				if self.lastSeen == 3: #hasnt seen a bear in 3 turns
-					self.active = False #state to inactive
-					self.fieldList[self.row][self.col][2] -= 1 #goes home
-
-				if observing >= 3: #if t sees 3 or more bears
-					if self.active:
-						self.active = False #state to inactive
-						self.fieldList[self.row][self.col][2] -= 1 #remove self from layer
-				
 				if observing == 0: #if it doesnt see a bear
 					self.lastSeen += 1 #update last seen
 
 				if self.fieldList[self.row][self.col][1] > 0: #if bear on the same spot
-					if self.active:
-						self.active = False #state to false
-						self.fieldList[self.row][self.col][2] -= 1 #remove self from spot
+					self.active = False #state to false
+					self.fieldList[self.row][self.col][2] -= 1 #remove self from spot
 
+				elif self.lastSeen >= 3: #hasnt seen a bear in 3 turns
+					self.active = False #state to inactive
+					self.fieldList[self.row][self.col][2] -= 1 #goes home
+
+				elif observing >= 3: #if it sees 3 or more bears
+					self.active = False #state to inactive
+					self.fieldList[self.row][self.col][2] -= 1 #remove self from layer
+
+				elif observing > 0: #if it sees a bear
+					self.lastSeen = 0
+
+				
+				
 		return
 		
 

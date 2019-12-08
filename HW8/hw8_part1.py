@@ -3,7 +3,7 @@ from Bear import Bear
 from Tourist import Tourist
 import json
 
-def update(ab=[], at=[], rb=[], rt=[]): #update function for all players
+def update(ab=[], at=[], rb=[], rt=[]): #update method for all players
 	for obj in ab:
 		obj.update()
 	for obj in at:
@@ -13,7 +13,7 @@ def update(ab=[], at=[], rb=[], rt=[]): #update function for all players
 	for obj in rt:
 		obj.update()	
 
-def extract_feature_layer(layer): #debugging function to extract different layers of field
+def print_feature_layer(layer): #debugging method to "peer" into different layers of field
 	if layer > 2 or layer < 0:
 		return
 	featurelayer = []
@@ -31,11 +31,72 @@ def extract_feature_layer(layer): #debugging function to extract different layer
 
 	print(out)
 
-if __name__ == "__main__":
+def extract_feature_layer(layer): #same as print feature layer but this returns as a nested list
+	if layer > 2 or layer < 0:
+		return
+	featurelayer = []
+	for row in field:
+		r = []
+		for stack in row:
+			r.append(stack[layer])
+		featurelayer.append(r)
 
+	return featurelayer
+
+def sum_stacked(nested): #nested list summation method for counting berries
+	s = 0
+	for sublist in nested:
+		for item in sublist:
+			s += item
+	return s
+
+def cycle(iter):
+	print("\nTurn: {}".format(iter+1))
+	f.update()
+	update(active_bears, active_tourists)
+
+	bactivity, tactivity = [], []
+
+	for bear in active_bears:
+		bactivity.append(bear.active)
+
+	for tourist in active_tourists:
+		tactivity.append(tourist.active)
+
+	while True:
+		try:
+			i = bactivity.index(False)
+			print(active_bears[i])
+			active_bears.pop(i)
+			bactivity.pop(i)
+		except:
+			break
+
+	while True:
+		try:
+			i = tactivity.index(False)
+			print(active_tourists[i])
+			active_tourists.pop(i)
+			tactivity.pop(i)
+		except:
+			break
+
+	print("Field has {} berries.".format(sum_stacked(extract_feature_layer(0))))
+	print(f)
+	print("Active Bears:")
+	for bear in active_bears:
+		print(bear)
+	print("\nActive Tourists:")
+	for tourist in active_tourists:
+		print(tourist)
+	print()
+
+if __name__ == "__main__": #main method
+
+	jstring = input("Enter the json file name for the simulation => ")
+	print(jstring)
 	bears, tourists = [], []
-
-	f = open("bears_and_berries_1.json") 
+	f = open(jstring) #CHANGE THIS
 	data = json.loads(f.read())
 
 	size = len(data["berry_field"])
@@ -57,3 +118,11 @@ if __name__ == "__main__":
 		obj = Tourist(metadata[0], metadata[1], field)
 		active_tourists.append(obj)
 
+	print("\nField has {} berries.".format(sum_stacked(extract_feature_layer(0))))
+	print(f)
+	print("Active Bears:")
+	for bear in active_bears:
+		print(bear)
+	print("\nActive Tourists:")
+	for tourist in active_tourists:
+		print(tourist)
