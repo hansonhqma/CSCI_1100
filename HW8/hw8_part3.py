@@ -3,15 +3,11 @@ from Bear import Bear
 from Tourist import Tourist
 import json
 
-def update(ab=[], at=[], rb=[], rt=[]): #update method for all players
+def update(ab=[], at=[]): #update method for all players
 	for obj in ab:
 		obj.update()
 	for obj in at:
 		obj.update()
-	for obj in rb:
-		obj.update()
-	for obj in rt:
-		obj.update()	
 
 def print_feature_layer(layer): #debugging method to "peer" into different layers of field
 	if layer > 2 or layer < 0:
@@ -81,22 +77,57 @@ def cycle(iter):
 		except:
 			break
 
-	print("Field has {} berries.".format(sum_stacked(extract_feature_layer(0))))
-	print(f)
-	print("Active Bears:")
-	for bear in active_bears:
-		print(bear)
-	print("\nActive Tourists:")
-	for tourist in active_tourists:
-		print(tourist)
-	print()
+	bcount = sum_stacked(extract_feature_layer(0))
+	if bcount >= 500:
+		try: #swag
+			metadata = data["reserve_bears"][0]
+			data["reserve_bears"].pop(0)
+			obj = Bear((metadata[0], metadata[1]), metadata[2], field)
+			print("Bear at ({},{}) moving {} - Entered the Field".format(obj.loc[0], obj.loc[1], obj.dir))
+			active_bears.append(obj) #BEAR HAS ENTERED THE BATTLE, *SMASH BROS MUSIC PLAYS*
+
+		except:
+			pass
+
+	if len(data["reserve_tourists"]) > 0 and len(active_bears) >= 1:
+		metadata = data["reserve_tourists"][0]
+		data["reserve_tourists"].pop(0)
+		obj = Tourist(metadata[0], metadata[1], field)
+		print("Tourist at ({},{}), {} turns without seeing a bear. - Entered the Field".format(obj.row, obj.col, obj.lastSeen))
+		active_tourists.append(obj)
+	
+	if (iter+1)%5 == 0:
+		print("Field has {} berries.".format(bcount))
+		print(f)
+		print("Active Bears:")
+		for bear in active_bears:
+			print(bear)
+		print("\nActive Tourists:")
+		for tourist in active_tourists:
+			print(tourist)
+		print()
+
+	
+
+	if not (iter+1)%5 == 0:
+		print()
+
+	if (len(active_bears) == 0 and len(data["reserve_bears"]) == 0) or (len(active_bears) == 0 and bcount == 0):
+		return False
+	else:
+		return True
+
+
+
+
+
 
 if __name__ == "__main__": #main method
 
 	jstring = input("Enter the json file name for the simulation => ")
 	print(jstring)
 	bears, tourists = [], []
-	f = open(jstring) #CHANGE THIS
+	f = open(jstring)
 	data = json.loads(f.read())
 
 	size = len(data["berry_field"])
@@ -108,7 +139,7 @@ if __name__ == "__main__": #main method
 		field.append(row)
 	f = BerryField(field)
 
-	active_bears, active_tourists = [], []
+	active_bears, active_tourists= [], []
 
 	for metadata in data["active_bears"]: #adding active bears
 		obj = Bear((metadata[0], metadata[1]), metadata[2], field)
@@ -128,5 +159,19 @@ if __name__ == "__main__": #main method
 	for tourist in active_tourists:
 		print(tourist)
 
-	for i in range(5): #this is so i can debug easier
-		cycle(i)
+	turn = 0
+
+	while True: #runtime
+		if not cycle(turn):
+			break
+		turn += 1
+
+	bcount = sum_stacked(extract_feature_layer(0))
+	print("Field has {} berries.".format(bcount))
+	print(f)
+	print("Active Bears:")
+	for bear in active_bears:
+		print(bear)
+	print("\nActive Tourists:")
+	for tourist in active_tourists:
+		print(tourist)

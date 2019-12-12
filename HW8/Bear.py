@@ -27,7 +27,15 @@ class Bear:
 	def posn(self, value): #position normalizer
 		return max(min(value, len(self.fieldList)-1),0)
 	
-	def next_movement_valid(self): #compares raw position with normalized position to determine if the next move is valid or not
+	def next_movement_valid(self): #determines if the next move is valid
+		'''
+		This works by looking ahead in the bears moves;
+		We determine the raw next position of the bear, regardless of whether or not it is within bounds of the board or not
+		We then determine the normalized next position of the bear
+
+		Logically, if the raw next position equals the normalized position, the bear is ok to move
+		If the raw next position does not equal the normalized position, the bear is not ok to move
+		'''
 		current = self.loc
 		raw_next = self.vector_add(current, self.pose)
 		normalized_next = (self.posn(raw_next[0]), self.posn(raw_next[1]))
@@ -51,10 +59,10 @@ class Bear:
 							break
 
 						else: #tourist not on spot
-							while self.fieldList[self.loc[0]][self.loc[1]][0] > 0:
+							while self.fieldList[self.loc[0]][self.loc[1]][0] > 0: #while berries still exist at that location
 								self.fieldList[self.loc[0]][self.loc[1]][0] -= 1
-								self.eaten += 1
-								if self.eaten >= 30:
+								self.eaten += 1 #nom nom nom
+								if self.eaten >= 30: #if the bear has eaten 30 or more, break the update for self
 									return
 
 
